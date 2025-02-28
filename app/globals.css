@@ -1,21 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+	:root {
+		/* to prevent page from zooming */
+		touch-action: pan-x pan-y;
+		height: 100%;
+	}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+	body {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		background-color: var(--color-white);
+		color: var(--color-zinc-700);
+		font-size: var(--text-sm);
+	}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+	/* add custom arrow */
+	select {
+		background: url("data:image/svg+xml,<svg height='14px' width='14px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>")
+			no-repeat;
+		background-position: calc(100% - 0.75rem) center !important;
+		-moz-appearance: none !important;
+		-webkit-appearance: none !important;
+		appearance: none !important;
+		padding-right: 2rem !important;
+	}
+
+	button {
+		cursor: pointer;
+	}
 }
